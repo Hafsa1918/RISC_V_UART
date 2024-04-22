@@ -4,13 +4,13 @@ This repository contains the RISC-V single cycle interfaced with UART module usi
 
 # Instructions used
 
-0x0aa00293	addi x5 x0 170	addi x5 x0 0xAA
+0x0aa00293	addi x5 x0 170	
 
-0x02500e23	sb x5 60(x0)	sb x5 60(x0)
+0x02500e23	sb x5 60(x0)	
 
-0x02500e23	sb x5 60(x0)	sb x5 60(x0)
+0x02500e23	sb x5 60(x0)	
 
-0x03c00303	lb x6 60(x0)	lb t1 60(x0)
+0x03c00303	lb x6 60(x0)	
 
 # Simulation Results
 

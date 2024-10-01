@@ -1,32 +1,25 @@
 module tb_risc_uart();
 
-reg clkR,clkI,reset,data_rx;
-reg [1:0] baud_rate, parity_type; 
-//wire resultsrc,memwrite,alusrc,regwrite,pcsrc;
+reg clk, clk_d,reset;
 wire data_tx;
-//wire [1:0] immsrc;
-wire [7:0] data_out;
+wire [7:0] data_out_rx;
 
-riscv_uart dut(clkR,clkI,reset,data_rx,baud_rate, parity_type,data_tx, data_out);
+riscv_uart dut(clk,clk_d,reset,data_tx, data_out_rx);
 
-always #1 clkI=~clkI;
-always #13000 clkR=~clkR;
+initial
+clk=0;
+
+initial
+clk_d=0;
+
+always #1 clk=~clk;  //clock to generate baud clock
+always #8000 clk_d = ~clk_d;  // clock for RISC-V processor
+
 initial 
 begin
- reset = 1;
- baud_rate=2'b11;
- parity_type=2'b10;
- #50;
+ reset = 1; 
+ #5;
  reset = 0;
- data_rx=1;
- #10000 data_rx=0;
-#10000 data_rx=1;
- #10000 data_rx=0;
-#10000 data_rx=1;
- //#1500 $stop;
 end
-initial
-clkI=0;
-initial
-clkR=0;
+
 endmodule 

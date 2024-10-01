@@ -13,7 +13,9 @@ The following image illustrates the connections between processor and UART modul
 # Instructions used
 
 **Addr	Machine Code	Basic Code	Original Code	**
+
 0x00	  0x03c00d93	  addi x27 x0 60	  addi x27, x0, 60 #base address
+
 0x04	  0x0aa00e13	  addi x28 x0 170	  addi x28, x0, 0x000000AA #data
 0x08	  0x00c00e93	  addi x29 x0 12	  addi x29, x0, 0x0000000C #control
 0x0c	  0x02000b93	  addi x23 x0 32	  addi x23,x0,0x20 # TX DONE FLAG

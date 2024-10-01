@@ -3,31 +3,44 @@ input memWrite,
 input [31:0] Addr,
 
 output reg WEM,
-output reg WEI,
+output reg WEId, WEIc,WEIs,
 output reg Rd_sel);
 
-localparam UART_base_address = 60;
-
+localparam UART_base_address = 60;  //TX data reg
+                                    //control reg addr = 61  
+                                    //status reg addr = 62   
+												//RX data reg = 63
+												
 always @ (*)
 begin
 if (UART_base_address == Addr && memWrite ==1)
 begin
-WEM=0; WEI=1; Rd_sel=1;
+WEM=0; WEId=1; WEIc=0; WEIs=0; Rd_sel=1;
 end
 
-else if(UART_base_address == Addr && memWrite ==0)
+else if (UART_base_address+1 == Addr && memWrite ==1)
 begin
-WEM=0; WEI=0; Rd_sel=1;
+WEM=0; WEId=0; WEIc=1; WEIs=0; Rd_sel=1;
+end
+
+else if (UART_base_address+2 == Addr && memWrite ==0)
+begin
+WEM=0; WEId=0; WEIc=0; WEIs=1; Rd_sel=1;
+end
+
+else if(UART_base_address +3 == Addr && memWrite ==0)
+begin
+WEM=0; WEId=0; WEIc=0; WEIs=0; Rd_sel=1;
 end
 
 else if(UART_base_address != Addr && memWrite ==1)
 begin
-WEM=1; WEI=0; Rd_sel=0;
+WEM=1; WEId=0; WEIc=0; WEIs=0; Rd_sel=0;
 end
 
 else if(UART_base_address != Addr && memWrite ==0)
 begin
-WEM=0; WEI=0; Rd_sel=0;
+WEM=0; WEId=0; WEIc=0; WEIs=0; Rd_sel=0;
 end
 
 end

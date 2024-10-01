@@ -13,6 +13,7 @@ begin
  3'b101: result=a<b;
  3'b011: result=a|b;
  3'b010: result=a&b;
+ 3'b100: result=a==b;
  default: result=3'b0;
  endcase
 end

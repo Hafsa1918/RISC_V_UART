@@ -7,8 +7,11 @@ RISC-V processor is implemented using https://github.com/Hafsa1918/RISC_V reposi
 0x60 is considered base address for UART communication 
 
 Using address 0x60 for TX data register
+
       address 0x61 for Control register
+      
       address 0x62 for Status register
+      
       address 0x63 for RX data register
 
 

@@ -14,6 +14,11 @@ Using address 0x60 for TX data register
       
       address 0x63 for RX data register
 
+# Control and Status register
+The following figure depicts Control and Status register coding
+
+![Control](https://github.com/user-attachments/assets/33e9dd96-ea69-43a5-8f2c-abe91ff4cb10)
+
 
 
 # RTL design

@@ -20,6 +20,12 @@ The following figure depicts Control and Status register coding
 ![Control](https://github.com/user-attachments/assets/33e9dd96-ea69-43a5-8f2c-abe91ff4cb10)
 
 
+# Integration sketch
+
+The following figure depicts integration architecture
+
+![integration](https://github.com/user-attachments/assets/9d6d8e04-bb5a-43e1-9c3a-f45fcd8046a5)
+
 
 # RTL design
 The following image illustrates the connections between processor and UART module using memory-mapped I/O
